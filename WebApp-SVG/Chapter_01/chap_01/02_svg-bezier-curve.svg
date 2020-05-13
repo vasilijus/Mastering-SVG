@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    
+    <path d="M 10 150 C 200 80 350 300 450 100" stroke="black" fill="none" stroke-width="2" />
+
+</svg>
+
+<!-- 
+    Measuring and subdividing the curve -  The JavaScript language binding of SVG allows you
+to interrogate properties of things that have been drawn either through markup or dynami-
+cally, and to manipulate them using methods. In this case, we are using two function calls:
+L = B.getTotalLength(); and P = B.getPointAtLength(L * i / n);. The first measures the path, B,
+and returns a numeric value; the second returns a point (an object with both x and y values)
+a given fraction of the distance along B. Script is then used to create new ellipses of different
+colors at those fractional mileposts.
+-->
