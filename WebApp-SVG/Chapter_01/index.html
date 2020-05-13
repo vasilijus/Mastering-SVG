@@ -6,16 +6,22 @@
     <title>Chap 1</title>
 </head>
 <body>
-    <p>Writing SVG - circle</p>
+    <p>Writing SVG - Shapes</p>
     <img src="chap_01/01_svg-circle.svg" />
     <p>Example - bezier curve</p>
     <img src="chap_01/02_svg-bezier-curve.svg" />
     <p>Example - animation</p>
     <svg height="140" width="500">
         <ellipse cx="100" cy="60" rx="100" ry="50" fill="red" stroke="black" stroke-width="2" />
+        <ellipse cx="100" cy="45" rx="60" ry="30" style="fill:pink; stroke: grey; stroke-width: 1px">
+            <animateTransform attributeName="transform" type="rotate" dur="5s" from="0" to="360" repeatCount="indefinite" />
+            <animate attributeName="rx" dur="5s" values="10; 30; 10;" repeatCount="indefinite" />
+        </ellipse>
         Sorry, your browser does not support inline SVG.  
     </svg>
-    <p>Example - bezier curve</p>
+    <p>Example - gradient</p>
+    <img src="chap_01/04_svg-gradients.svg" />
+    <p>Example - gradient</p>
     <img src="chap_01/04_svg-gradients.svg" />
     
 </body>

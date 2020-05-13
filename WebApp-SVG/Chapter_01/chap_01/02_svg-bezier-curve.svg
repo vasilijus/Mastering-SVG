@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg">
     
     <path d="M 10 150 C 200 10 330 300 400 150" stroke="red" fill="none" stroke-width="2" />
+    <line x2="300" y2="100" stroke="green" stroke-width="2" stoke-linecap="round" />
+    <rect 
+        x="50" y="50" 
+        width="50" height="30" fill="green" 
+        rx="10" ry="10" />
 
 </svg>
 
@@ -13,3 +18,28 @@ and returns a numeric value; the second returns a point (an object with both x a
 a given fraction of the distance along B. Script is then used to create new ellipses of different
 colors at those fractional mileposts.
 -->
+
+<!-- 
+
+stroke-opacity      - This is a number between 1.0 and 0.0. A value of 1 makes the stroke entirely opaque and 0 makes
+it invisible.
+
+stroke-dasharray    - This is a list of user coordinate values (px) that determines the length or pattern of the invisible
+spacing to be drawn between segments along the stroke of text or a shape.
+
+stroke-linecap      - This defines the shape at both ends of a line. The options are butt (the default), round, and square.
+stroke-linejoin This determines the shape to be used at the corners of paths or basic shapes. The options are miter
+(the default), round, and bevel.
+
+fill                - This specifies the color of the shape or text.
+
+fill-opacity        - This is similar to the stroke opacity. Note that if the opacity is between 0 and 1, and the stroke
+value is set to a different color or opacity than the fill color, then the inner portion of the stroke will
+be a different color than the outer portion of the stroke, which can create some nice effects.
+
+fill-rule           - This determines which portions of a shape will be filled. The options are nonzero (the default) and
+evenodd. Note that this is usually straightforward, but for more interesting or complex shapes, the
+result of fill-rule can be less obvious, as explained in the “Fill Properties: nonzero and evenodd”
+section.
+
+ -->
