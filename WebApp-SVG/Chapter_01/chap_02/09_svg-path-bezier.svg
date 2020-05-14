@@ -1,0 +1,11 @@
+<svg    xmlns="http://www.w3.org/2000/svg" 
+        preserveAspectRatio="none" >
+
+    <path stroke="black" fill-rule="evenodd"
+      d="M 70,140 
+        C 17.5,140 150,0 200,100 
+        C 220,130 30,100 100,0 
+        C 110,-30 210, 100 70,140" />
+
+</svg>
+
