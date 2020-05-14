@@ -1,0 +1,23 @@
+<svg    xmlns="http://www.w3.org/2000/svg" 
+        preserveAspectRatio="none" >
+        <g transform="translate(0,0)">
+                <path stroke="black" fill="none" stroke-width="2"
+                d="M 0,20 20,0 40,20 " />
+                <path stroke="black" fill="none"
+                d="M 20,15 20,5 30,5 30,15"
+                transform="translate(-5,3)" />
+        </g>
+        <g transform="translate(50,0)">
+                <path stroke="black" fill="none" stroke-width="2"
+                d="M 0,20 20,0 40,20 z" />
+                <path stroke="black" fill="none"
+                d="M 20,15 20,5 30,5 30,15 z"
+                transform="translate(-5,3)" />
+        </g>
+        <g transform="translate(100,0)">
+                <path stroke="black" fill="red" stroke-width="5" 
+                d="M 0,100 100,10 200,100 z
+                   M 80,90 80,50 120,50 120,90 z"
+                fill-rule="evenodd" />
+        </g>
+</svg>
