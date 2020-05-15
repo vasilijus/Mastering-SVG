@@ -1,0 +1,11 @@
+    <svg  xmlns="http://www.w3.org/2000/svg" 
+            width="500" height="300" viewBox="0 0 400 300" >
+        <!-- Draw the upper-right rectangle. -->
+        <rect fill="#ada1d9" fill-opacity="1" fill-rule="nonzero"
+            stroke="#32287d" stroke-width="2" stroke-linecap="butt"
+            stroke-linejoin="bevel" stroke-miterlimit="4" stroke-opacity="0.4"
+            id="rectangle" width="50" height="20" x="90" y="10" />
+
+        <!-- Reuse the first rectangle element and move it to a different position. -->
+        <use x="0" y="30" xlink:href="#rectangle" />
+    </svg>

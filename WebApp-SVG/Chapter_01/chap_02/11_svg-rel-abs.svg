@@ -1,0 +1,10 @@
+<svg    xmlns="http://www.w3.org/2000/svg" 
+        width="500" height="300" viewBox="0 0 400 300" >
+    <!-- The arc subcommand of the <path> element has the following syntax: 
+    A rx ry XAR large-arc-flag sweep-flag x y  -->
+  <path stroke="red" fill="pink" stroke-width="3" 
+    d="M 10,50 V 10,20 L 40,20 40,40 z" />
+  <path stroke="red" fill="pink" stroke-width="3" 
+    d="m 10,50 v 10,20 l 40,20 40,40 z" />
+</svg>
+
