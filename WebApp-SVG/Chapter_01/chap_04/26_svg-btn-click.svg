@@ -1,0 +1,22 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="250" >
+
+	<script><![CDATA[
+		var Eee;
+    	function here(event) {
+        	alert("hello");
+			Eee = event.target;
+			console.log(Eee)
+        }
+    ]]></script>
+    <text id="Text" fill="black"
+    	x="25" y="42" font-size="20" >
+    	Press Here
+    </text>
+    <rect id="Rect" fill="red" opacity=".2" rx="10" stroke="black" stroke-width="2"
+    	x="10" y="10" width="150" height="50"
+        onClick="here(event)" />
+
+</svg>
+ 

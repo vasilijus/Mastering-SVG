@@ -1,0 +1,229 @@
+Example 1
+
+Here, you’ll begin with the simple example above (http://granite.sru.edu/~ddailey/svg/B/scriptstart1.
+svg) and change the statement alert('Hello') so that, instead, the code retrieves the object named rect
+and then modifies it:
+Chapter 4 Motion and Interactivity
+103<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<script><![CDATA[
+function Here () {
+var R = document.getElementById("Rect");
+R.setAttributeNS(null, "fill", "red");
+}
+]]></script>
+<text id="Text" x="87" y="100" font-size="26" fill="black">Click</text>
+<rect id="Rect" onclick="Here()" x="75" y="76" height="30"
+width="80" stroke="black" stroke-width="2" fill="green" opacity=".5" rx="10"/>
+</svg>
+When an element defined in an SVG document is built and inserted into the DOM, it is called a node.
+The DOM has a tree structure—computer scientists like to call the nodes “leaves.” The <rect> element
+is a node that has been given an identifier using the id attribute: id="Rect".
+You use the method getElementById() to retrieve a particular node in the document, and the method
+returns a reference that you can store in a variable for future use. In the above code we have declared
+the variable R and we have assigned to it the node reference returned by the method. Think of R as
+an alias for Rect. However, remember that the variable R is a reference to the Rect node only within
+the body of the function (scope), because we have declared R as a local variable. If we wanted to be
+able to reuse it outside of the function, or within other functions, we would need to declare it as a
+global variable, right at the beginning of the script, and we would use it in the function body without
+the var keyword:
+<script><![CDATA[
+var R;
+function Here () {
+R = document.getElementById("Rect");
+...
+}
+We have declared the global variable R, and we have assigned a value to it in the function body.
+So long as we do not reassign that variable by giving it a new value, it will refer to the Rect node
+throughout the program.
+When the function Here() is activated by the click event, the node R will have the value of its fill
+attribute changed to red. Note the use of the method setAttributeNS() instead of the more generic
+setAttribute(); although the latter would work equally well in this particular case, this is not true for
+methods that have an XML declination when used in documents using multiple namespaces, for
+example HTML and SVG. Therefore it is essential to get into the right habit of using the appropriate
+grammar.
+
+
+Example 2
+
+Here’s a more general approach that would work for any item in the document for which you wish to
+change the fill color. You can see this example at http://granite.sru.edu/~ddailey/svg/B/changeAttr2.svg.
+The example begins the same as before, so the first lines are omitted here:
+104   Building Web Applications with SVGfunction Here (evt) {
+var R = evt.target;
+R.setAttributeNS(null, "fill", "red");
+}
+]]></script>
+<text id="Text" x="67" y="100" font-size="26" fill="black">Click</text>
+<rect onclick="Here(evt)" x="55" y="76" height="30" width="80" stroke="black"
+stroke-width="2" fill="blue" opacity=".5" rx="10"/>
+<g transform="translate(100,0)">
+<text id="Text" x="87" y="100" font-size="26" fill="black">Click</text>
+<rect onclick="Here(evt)" x="75" y="76" height="30" width="80" stroke="black"
+stroke-width="2" fill="green" opacity=".5" rx="10"/>
+</g>
+Note the following about this example:
+■ ■
+■ ■
+■ ■
+Each of the two buttons, when clicked, sends a small gift (known as a parameter) to the func-
+tion Here(). This parameter is the event (evt), which is an object that contains information
+about what just happened.
+The code evt.target is a way of referring to the thing that received the event. In this case,
+evt.target refers to whichever rectangle the user clicked.
+After you know what was clicked, you let R refer to that, and then change the attributes of
+R the same way as in the previous example.
+
+
+Example 3
+
+Notice that an object does not need to have a particular attribute specifically defined beforehand for
+you to add and then change that attribute in code (see the example at http://granite.sru.edu/~ddailey/
+svg/B/changeAttr3.svg, in which the dash array is adjusted by script even though the original element
+contained no such attribute to begin with). This is possible because in reality the majority of attributes
+are assigned to the element with an initial value (default) which, in the case of dash array for example,
+is set to “none”.
+function Here (evt) {
+var R = evt.target;
+if (evt.type == "mouseover") {
+R.setAttributeNS(null, "stroke-dasharray", "4,8");
+R.setAttributeNS(null, "stroke-width", "10");
+R.setAttributeNS(null, "fill", "green");
+}
+else if (evt.type == "mouseout") {
+R.setAttributeNS(null, "stroke-dasharray", null);
+R.setAttributeNS(null, "stroke-width", "2");
+R.setAttributeNS(null, "fill", "blue");
+}
+}
+]]>
+</script>
+<text id="Text" x="67" y="100" font-size="26" fill="black">Click</text>
+<rect onmouseover="Here(evt)" onmouseout="Here(evt)" x="55" y="76" height="30" width="80"
+stroke="black" stroke-width="2" fill="blue" opacity=".5" rx="10"/>
+Chapter 4 Motion and Interactivity
+105Note the following about this example:
+■ ■
+■ ■
+■ ■
+■ ■
+■ ■
+The rectangle has both an onmouseover and an onmouseout event defined. Both fire the same
+function: Here().
+The code uses the type of the event (mouseover or mouseout) to determine which block of
+code (inside the curly braces) to perform.
+The code adjusts several attributes during the call: fill, stroke-width, and stroke-dasharray.
+When the user moves the mouse out of the rectangle, the event fires and the function is
+called again restoring the attributes to their original values.
+You could easily add another block of code, using another else if statement to trigger a func-
+tion or change attribute values when the user clicks the mouse.
+
+
+Example 4
+
+As you might expect, you can accomplish this just as well using the <set> element available in SMIL
+animation, as illustrated here (also see the example at http://granite.sru.edu/~ddailey/svg/B/change​
+Attr4.svg):
+<text id="Text" x="67" y="100" font-size="26" fill="black">Click</text>
+<rect x="55" y="76" height="30" width="80" stroke="black" stroke-width="2"
+fill="blue" opacity=".5" rx="10">
+<set attributeName="fill" begin="mouseover" to="green"/>
+<set attributeName="stroke-width" begin="mouseover" to="10"/>
+<set attributeName="stroke-dasharray" begin="mouseover" to="4,8"/>
+<set attributeName="fill" begin="mouseout" to="blue"/>
+<set attributeName="stroke-width" begin="mouseout" to="2"/>
+<set attributeName="stroke-dasharray" begin="mouseout" to="none"/>
+</rect>
+Note the following about this example:
+■ ■
+■ ■
+■ ■
+■ ■
+As of this writing Chrome and Safari do not properly handle the rollover; they sometimes
+appear to be confused about whether the mouse has left or entered.
+Opera and Firefox disagree on the number of attributes left in the DOM after the process
+runs, as this example shows.
+This technique runs afoul of the popular approach of attempting to separate content, pre-
+sentation, and behavior (into markup, styles, and script, respectively). Still, there is something
+nice about having all aspects of an object right there with it. It is also not clear, in a graphical
+language like SVG, what the distinction between the three necessarily is.
+The cross-browser issues associated with the SMIL approach, regardless of its elegance, might
+recommend the scripted approach instead.
+106   Building Web Applications with SVG
+
+
+Example 5
+
+While on the topic of animation, here's an example of animating things using JavaScript (see http://
+granite.sru.edu/~ddailey/svg/B/changeAttr5.svg). Here are the key parts of the script:
+if (evt.type == "mouseover") {
+R.setAttributeNS(null, "stroke", "green");
+R.setAttributeNS(null, "fill", "green");
+running = true;
+animate();
+}
+var w = 2;
+var dir = 1;
+function animate () {
+if (!running) return;
+w = w + dir;
+R.setAttributeNS(null, "stroke-width", w);
+if ( w > 5 || w < 1) dir =- dir;
+setTimeout("animate()", 50);
+}
+Note the following about this example:
+■ ■
+■ ■
+■ ■
+■ ■
+If the scripting looks complicated, realize that it is just a way of programming
+nondeclaratively. On mouseover, the code calls the function animate(), which repeatedly
+changes the stroke width.
+The animate() function uses the JavaScript command, setTimeout(), to repeatedly restart itself
+and redraw the screen every 50 milliseconds.
+The value of the variable w increases every 50 milliseconds until it reaches 5, and then it
+shrinks.
+You could obtain a similar effect rather easily using the declarative <animate> (which would
+probably be more understandable to prospective web authors).
+
+
+Example 6
+
+Next is an example that changes the text inside a text node. This is something that people often want
+to do at about this stage of their learning, but it turns out that the conceptual approach is somewhat
+different than what we’ve discussed so far. The words inside a text node are, in fact, not attributes
+of the text node, but rather the contents of its child node. You’ll learn more about the distinction
+between parent nodes and child nodes later in this chapter, in the section “The SVG DOM.” You can
+see the example running at http://granite.sru.edu/~ddailey/svg/B/changeAttr6.svg.
+<script><![CDATA[
+function Here (evt) {
+var R = evt.target;
+var T = document.getElementById("Text");
+if (evt.type == "mouseover") {
+Chapter 4 Motion and Interactivity
+107R.setAttributeNS(null, "fill", "green");
+T.textContent = "please";
+T.setAttributeNS(null, "font-size","20");
+}
+else if (evt.type == "mouseout") {
+R.setAttributeNS(null, "fill", "blue");
+T.textContent = "Click";
+T.setAttributeNS(null, "font-size", "26");
+}
+}
+]]></script>
+<text id="Text" x="67" y="100" font-size="26" fill="black">Click</text>
+<rect onmouseover="Here(evt)" onmouseout="Here(evt)" x="55" y="76" height="30" width="80"
+stroke="black" stroke-width="2" fill="blue" fill-opacity=".5" rx="10"/>
+Note the following about this example:
+■ ■
+■ ■
+■ ■
+As before, the code changes the color of the <rect> element. But this time it also adjusts the
+font size of the <text> element named Text, so that it fits into its button a bit better. The code
+to do these two things uses the same techniques as in the earlier examples.
+The content of the text node is inside a node considered to be a child of the text node.
+As such, the value of that node is not an attribute, so you can set its textContent. Because
+the node inside is the first child of the text node, you could instead change the content of
+firstChild using the code T.firstChild.nodeValue="please."
+The code T.textContent does not work in the Adobe plug-in (meaning that it won’t work with
+Internet Explorer 8 or below). If support for those browsers matters to y

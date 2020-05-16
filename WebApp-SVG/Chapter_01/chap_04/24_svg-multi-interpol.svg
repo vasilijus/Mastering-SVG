@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" width="700" height="250" >
+
+	<path id="block" stroke="black" stroke-width="2" fill="pink">
+		<animate attributeName="d" dur="10s" repeatCount="indifinite"
+		values=" 
+		M 0,100 100,0 200,100 130,70 70,130 z;
+		M 0,100 100,0 200,100 130,130 70,70 z;
+		M 0,100 100,0 200,100 130,70 70,130 z;" />
+	</path>
+</svg>
