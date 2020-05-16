@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%"
+xmlns:xlink="http://www.w3.org/1999/xlink" >
+<script><![CDATA[
+xmlns="http://www.w3.org/2000/svg"
+xlink="http://www.w3.org/1999/xlink"
+
+function add (evt) {
+	var C = document.createElementNS(xmlns, "circle");
+	C.setAttributeNS(null, "r", 30);
+	C.setAttributeNS(null, "cx", evt.clientX);
+	C.setAttributeNS(null, "cy", evt.clientY);
+	C.setAttributeNS(null, "opacity", .5);
+	C.setAttributeNS(null, "fill", Color());
+	document.documentElement.appendChild(C);
+}
+function Color() {
+	R = parseInt(Math.random() * 255)
+	G = parseInt(Math.random() * 255)
+	B = parseInt(Math.random() * 255)
+	return "rgb("+R+","+G+","+B+")";
+}
+]]></script>
+<rect width="100%" height="100%" fill="white" onclick="add(evt)"/>
+<text id="Text" x="67" y="90" font-size="17" font-family="arial" fill="black">
+Click anywhere to add something</text>
+<rect x="55" y="70" height="30" width="285" onclick="add(evt)" stroke="black"
+stroke-width="2" fill="blue" opacity=".5" rx="10" />
+</svg>

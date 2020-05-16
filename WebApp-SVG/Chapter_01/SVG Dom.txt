@@ -1,0 +1,25 @@
+SVG DOM
+To those who have not already programmed with the DOM in HTML or XML, this topic can be fairly
+complex. As you read this chapter, we encourage you to spend a week or two playing with some of
+these examples and others at the authors’ websites (for example, see http://srufaculty.sru.edu/david​
+.dailey/svg/createElementBrowser.html). If you are not already a programmer, you may want to skip
+this section.
+To recap, the following two lists show topics that have already been covered in this chapter and
+those that have not, respectively. Once you become familiar with all of these concepts, you will be
+able to do most anything you will ever need to do in the SVG DOM.
+
+Here are the topics that we’ve already covered:
+■ ■ setAttributeNS()
+■ ■ getAttributeNS()
+■ ■ getElementById()
+■ ■ createElementNS()
+■ ■ appendChild()
+■ ■ cloneNode()
+■ ■ firstChild
+
+And here are the topics that we’ll discuss in the final sections of the chapter:
+■ ■ previousSibling() and nextSibling()
+■ ■ getElementsByTagNameNS()
+■ ■ parentNode()
+■ ■ removeChild()
+■ ■ createTextNode()
