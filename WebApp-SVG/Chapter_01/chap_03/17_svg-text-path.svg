@@ -1,0 +1,14 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <defs>
+        <path id="pathCurve"  d="M 10 100 C 160,10 310,250 450,50" />
+    </defs>
+
+    <text x="20" y="20" font-size="14" fill="#444">
+        <textPath xlink:href="#pathCurve">With love from Russia | Wi th Ru ss ia fr om Lo ve!</textPath>
+    </text>
+
+</svg>
+ 
+

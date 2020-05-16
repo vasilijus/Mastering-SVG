@@ -1,0 +1,19 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <defs> 
+        <text id="trefText">
+            text
+        </text>
+    </defs>
+
+    <text x="0" y="0" font-size="20" fill="#000">
+        <tref xlink:href="#trefText" />
+    </text>
+    <text font-family="arial" font-size="16" fill="black">
+        <tref xlink:href="#trefText"/>
+    </text>
+
+</svg>
+ 
+
